@@ -87,22 +87,48 @@
             direction: ltr;
             text-align: right;
             margin: 15px 0;
-            overflow-x: auto; /* لحماية المعادلات الطويلة على الهاتف */
+            overflow-x: auto;
         }
 
-        .law-highlight {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 40px;
-            border: 2px solid var(--secondary-color);
+        /* تنسيقات قسم القانون الجزائري المضافة حديثاً */
+        .law-steps-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .law-highlight h2 {
-            color: var(--secondary-color);
+        .step-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            border-right: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-card h4 {
+            color: var(--primary-color);
             margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .step-card .article-ref {
+            display: inline-block;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.85rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
         /* حاوية الجدول المتجاوب */
@@ -116,7 +142,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 500px; /* ضمان عدم تداخل النصوص داخل الجدول */
+            min-width: 500px;
         }
 
         table, th, td {
@@ -146,7 +172,7 @@
             color: var(--secondary-color);
         }
 
-        /* --- إعدادات التجاوب مع الهواتف (Media Queries) --- */
+        /* --- إعدادات التجاوب مع الهواتف --- */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8rem;
@@ -163,9 +189,6 @@
             }
             .system-card h2 {
                 font-size: 1.3rem;
-            }
-            .law-highlight {
-                padding: 20px 15px;
             }
             .math-box {
                 font-size: 0.95rem;
@@ -273,14 +296,50 @@
             </ul>
         </section>
 
-        <section class="law-highlight">
-            <h2>التطبيق وفق الأمر 21-01</h2>
-            <p>
-                وفقاً لـ <strong>الأمر رقم 21-01</strong> المتضمن القانون العضوي المتعلق بنظام الانتخابات، يعتمد المشرع الجزائري <strong>نظام الاقتراع النسبي على القائمة المفتوحة وبتصويت تفضيلي</strong> دون مزج. 
-                <br><br>
-                حيث يتم توزيع المقاعد وفق المعامل الانتخابي، وتُمنح المقاعد المتبقية حسب قاعدة <strong>الباقي الأكبر</strong> (كما وضحنا في المثال أعلاه)، مع إعطاء الناخب حرية اختيار مرشحيه المفضلين داخل القائمة الواحدة، مما يعزز الديمقراطية والشفافية.
-            </p>
+        <section class="system-card" style="background-color: #f8fbfa;">
+            <h2>تبسيط المواد من 171 إلى 175 (الأمر 21-01)</h2>
+            <p>لتوضيح كيفية توزيع مقاعد المجالس الشعبية البلدية والولائية وفقاً لقاعدة التمثيل النسبي (الباقي الأقوى)، قمنا بتبسيط الإجراءات القانونية إلى 4 خطوات عملية:</p>
+
+            <div class="law-steps-container">
+                
+                <div class="step-card">
+                    <span class="article-ref">المادة 171 و 175</span>
+                    <h4>الخطوة 1: شرط الـ 5% (الإقصاء)</h4>
+                    <p>
+                        القوائم التي لم تحصل على نسبة <strong>5% على الأقل</strong> من الأصوات المعبر عنها يتم إقصاؤها ولا تدخل في حساب توزيع المقاعد. 
+                        <br><strong>استثناء:</strong> إذا لم تحصل أي قائمة على 5%، يتم قبول جميع القوائم وتوزيع المقاعد عليها.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <span class="article-ref">المادة 172</span>
+                    <h4>الخطوة 2: حساب المعامل الانتخابي</h4>
+                    <p>
+                        يتم حسابه بقسمة <strong>مجموع الأصوات المعبر عنها</strong> (بعد طرح أصوات القوائم المقصاة إن وجدت) على <strong>عدد المقاعد المطلوب شغلها</strong> في الدائرة الانتخابية.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <span class="article-ref">المادة 173</span>
+                    <h4>الخطوة 3: توزيع المقاعد وكسر التعادل بين القوائم</h4>
+                    <p>
+                        تحصل كل قائمة على مقاعد بقدر عدد المرات التي حصلت فيها على المعامل الانتخابي. المقاعد المتبقية توزع حسب ترتيب <strong>الأصوات الباقية</strong> (الباقي الأقوى).
+                        <br><strong>في حال التعادل:</strong> إذا تساوت الأصوات المتبقية لقائمتين للحصول على المقعد الأخير، يُمنح المقعد للقائمة التي يكون <strong>معدل سن مرشحيها هو الأصغر</strong>.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <span class="article-ref">المادة 174</span>
+                    <h4>الخطوة 4: من يفوز داخل القائمة الواحدة؟</h4>
+                    <p>
+                        بعد معرفة عدد المقاعد لكل قائمة، تفوز بها الأسماء التي حصلت على <strong>أكبر عدد من الأصوات</strong> داخل تلك القائمة.
+                        <br><strong>في حال التعادل:</strong> إذا تساوى مرشحان أو أكثر داخل القائمة في عدد الأصوات للمقعد الأخير، يفوز <strong>المترشح الأصغر سناً</strong>.
+                    </p>
+                </div>
+
+            </div>
         </section>
+
     </div>
 
     <footer>
