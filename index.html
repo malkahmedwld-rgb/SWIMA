@@ -87,6 +87,7 @@
             direction: ltr;
             text-align: right;
             margin: 15px 0;
+            overflow-x: auto; /* لحماية المعادلات الطويلة على الهاتف */
         }
 
         .law-highlight {
@@ -104,10 +105,18 @@
             margin-top: 0;
         }
 
+        /* حاوية الجدول المتجاوب */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            min-width: 500px; /* ضمان عدم تداخل النصوص داخل الجدول */
         }
 
         table, th, td {
@@ -122,6 +131,7 @@
         th {
             background-color: var(--primary-color);
             color: white;
+            white-space: nowrap;
         }
 
         footer {
@@ -134,6 +144,32 @@
 
         footer strong {
             color: var(--secondary-color);
+        }
+
+        /* --- إعدادات التجاوب مع الهواتف (Media Queries) --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .container {
+                margin: 20px auto;
+            }
+            .system-card {
+                padding: 15px;
+                border-right-width: 4px;
+            }
+            .system-card h2 {
+                font-size: 1.3rem;
+            }
+            .law-highlight {
+                padding: 20px 15px;
+            }
+            .math-box {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -189,42 +225,45 @@
             </div>
 
             <p><strong>ثانياً: توزيع المقاعد الأولى</strong> (بتقسيم عدد أصوات كل حزب على المعامل الانتخابي)</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>القائمة</th>
-                        <th>العملية الحسابية</th>
-                        <th>المقاعد المكتسبة</th>
-                        <th>الباقي من الأصوات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>أ</td>
-                        <td>7000 ÷ 2400</td>
-                        <td>2</td>
-                        <td>2200</td>
-                    </tr>
-                    <tr>
-                        <td>ب</td>
-                        <td>5000 ÷ 2400</td>
-                        <td>2</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>ج</td>
-                        <td>8000 ÷ 2400</td>
-                        <td>3</td>
-                        <td>800</td>
-                    </tr>
-                    <tr>
-                        <td>د</td>
-                        <td>4000 ÷ 2400</td>
-                        <td>1</td>
-                        <td>1600</td>
-                    </tr>
-                </tbody>
-            </table>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>القائمة</th>
+                            <th>العملية الحسابية</th>
+                            <th>المقاعد المكتسبة</th>
+                            <th>الباقي من الأصوات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>أ</td>
+                            <td>7000 ÷ 2400</td>
+                            <td>2</td>
+                            <td>2200</td>
+                        </tr>
+                        <tr>
+                            <td>ب</td>
+                            <td>5000 ÷ 2400</td>
+                            <td>2</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>ج</td>
+                            <td>8000 ÷ 2400</td>
+                            <td>3</td>
+                            <td>800</td>
+                        </tr>
+                        <tr>
+                            <td>د</td>
+                            <td>4000 ÷ 2400</td>
+                            <td>1</td>
+                            <td>1600</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <p><strong>ثالثاً: توزيع المقاعد المتبقية (طريقة الباقي الأكبر)</strong></p>
             <p>عند جمع المقاعد الموزعة نجدها <strong>08 مقاعد</strong>، والباقي <strong>02 مقعد</strong>. يجب توزيعها على الأحزاب التي بقي لها أكبر عدد من الأصوات غير المستغلة:</p>
